@@ -12,6 +12,7 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint --type-aware src/ test/",
+    "prepare": "husky",
     "start": "nest start",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -36,6 +37,8 @@
     "@types/node": "^24.0.0",
     "@types/supertest": "^7.0.0",
     "@vitest/coverage-v8": "^4.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "oxfmt": "^0.74.0",
     "oxlint": "^1.58.0",
     "oxlint-tsgolint": "^7.0.2001",
@@ -44,5 +47,16 @@
     "typescript": "^6.0.2",
     "vite": "^8.0.0",
     "vitest": "^4.1.2"
-  }
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs}": [
+      "oxfmt --no-error-on-unmatched-pattern",
+      "oxlint --type-aware"
+    ],
+    "*.{json,jsonc,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "yarn@1.22.22"
 }
