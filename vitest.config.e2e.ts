@@ -7,5 +7,6 @@ export default defineConfig({
     root: './',
     include: ['**/*.e2e-spec.ts'],
     passWithNoTests: true,
+    env: { LOG_LEVEL: 'silent' },
   },
 });

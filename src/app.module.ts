@@ -5,6 +5,7 @@ import { APP_PIPE } from '@nestjs/core';
 import { ZodValidationPipe } from './common/zod/index.js';
 import { validateEnv } from './config/env.schema.js';
 import { HealthModule } from './health/health.module.js';
+import { LoggerModule } from './logger/logger.module.js';
 
 @Module({
   imports: [
@@ -12,8 +13,10 @@ import { HealthModule } from './health/health.module.js';
       isGlobal: true,
       cache: true,
       validate: validateEnv,
+      envFilePath: ['.env.local', '.env'],
     }),
     HealthModule,
+    LoggerModule,
   ],
   providers: [{ provide: APP_PIPE, useClass: ZodValidationPipe }],
 })
