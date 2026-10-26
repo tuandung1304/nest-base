@@ -5,6 +5,7 @@ export const envSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
   SERVICE_NAME: z.string().min(1).default('nest-base'),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
+  GRACEFUL_SHUTDOWN_TIMEOUT_MS: z.coerce.number().int().nonnegative().default(5000),
 });
 
 export type Env = z.infer<typeof envSchema>;
