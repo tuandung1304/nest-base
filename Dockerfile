@@ -26,6 +26,7 @@ FROM node:24-alpine
 WORKDIR /usr/src/app
 
 ENV NODE_ENV=production
+ENV GRACEFUL_SHUTDOWN_TIMEOUT_MS=0
 
 USER node
 
