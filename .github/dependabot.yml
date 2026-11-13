@@ -13,6 +13,8 @@ updates:
       nestjs:
         patterns: ['@nestjs/*']
       minor-and-patch:
+        patterns: ['*']
+        exclude-patterns: ['@nestjs/*']
         update-types: [minor, patch]
     ignore:
       - dependency-name: '@types/node'
